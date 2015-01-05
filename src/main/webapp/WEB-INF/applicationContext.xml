@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+
+
+	<bean id="iOPortService" class="jvs.spring.pic.serviceImpl.IOPortServiceImpl">
+		<property name="iOPortDAO" ref="iOPortDAO" />
+	</bean>	
+	
+	<bean id="iOPortDAO" class="jvs.spring.pic.daoImpl.IOPortDAOImpl">
+		<property name="serialComm" ref="serialComm" />
+	</bean>	
+
+	<bean id="serialComm" class="jvs.spring.pic.util.SerialComm" />
+
+
+	<!-- TempMonitorServlet implements HttpRequestHandler so that Spring Beans can be injected, since it is a Servlet -->
+	<bean id="TempMonitorServlet" class="jvs.spring.pic.controller.TempMonitorServlet">
+		<property name="iOPortService" ref="iOPortService" />
+	</bean>	
+</beans>

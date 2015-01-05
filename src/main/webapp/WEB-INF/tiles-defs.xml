@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="tileBaseLayout" template="/tiles/baseLayout.jsp">
+		<put-attribute name="title" value="Template" />
+		<put-attribute name="header" value="/tiles/header.jsp" />
+		<put-attribute name="menu" value="/tiles/menu.jsp" />
+		<put-attribute name="body" value="/tiles/body.jsp" />
+		<put-attribute name="footer" value="/tiles/footer.jsp" />
+	</definition>
+	
+	<definition name="tileIOPortOperations" extends="tileBaseLayout">
+		<put-attribute name="title" value="IOPort Operations" />
+		<put-attribute name="body" value="/jsp/iOPortOperations.jsp" />
+	</definition>
+	
+	<definition name="tileTemperatureReader" extends="tileBaseLayout">
+		<put-attribute name="title" value="Temperature Reader" />
+		<put-attribute name="body" value="/jsp/temperatureReader.jsp" />
+	</definition>
+</tiles-definitions>
